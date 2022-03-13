@@ -80,7 +80,7 @@ public class ReplyToEmail {
                     toEmail=message.getFrom()[0].toString().toLowerCase(Locale.ROOT);
                     subject=message.getSubject().toLowerCase(Locale.ROOT);
                     System.out.println(subject);
-                    if(toEmail.contains("santoshkotakonda@gmail.com")){
+                    if(toEmail.contains("prasanna.kmr11@gmail.com")){
                         if(!subject.contains("south")&&!subject.contains("re:")){
                             if(subject.contains("stockdale")||subject.contains("thomaston")){
                                 sendEmail(message);
