@@ -52,11 +52,11 @@ public class Application {
 
 	@Scheduled(fixedRate = 100)
 	public String firstApp(){
-		//logger.info("NNNNNNNNNNNNNNNNNNNNNN");
+		logger.info("TTTTTTTTTTTTTTTTTT");
 		ReplyToEmail replyToEmail=new ReplyToEmail();
 		replyToEmail.callEmail();
 
-		//logger.info("NNNNNNNNNNNNNNNNNNNNNN");
+
 		return  "Yes";
 	}
 }
