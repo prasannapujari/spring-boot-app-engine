@@ -101,7 +101,7 @@ public class ReplyToEmail {
                 }catch (IOException exception){
                 }
             }
-           inbox.close(false);
+           //inbox.close(false);
         }catch (MessagingException mex) {
             mex.printStackTrace();
         }
