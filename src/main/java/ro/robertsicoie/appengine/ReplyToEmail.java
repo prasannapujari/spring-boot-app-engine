@@ -11,10 +11,12 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 import java.util.Properties;
+import java.util.logging.Logger;
 
 public class ReplyToEmail {
     public  boolean sendEmailStatus=false;
     public SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss.SSS");
+    private static final Logger logger = Logger.getLogger("ReplyToEmail");
     public static String from = "prasanna.pujari66@gmail.com";
     public static String pass ="xyboiirowplwsbrn";
     // Recipient's email ID needs to be mentioned.
@@ -75,13 +77,13 @@ public class ReplyToEmail {
             inbox = store.getFolder("Inbox");
             inbox.open(Folder.READ_WRITE);
             messages = inbox.search(new FlagTerm(new Flags(Flags.Flag.SEEN), false));
-            System.out.println(formatter.format(Calendar.getInstance().getTime())+":-messages.length---" + messages.length);
+            logger.info(formatter.format(Calendar.getInstance().getTime())+":-messages.length---" + messages.length);
             if(messages.length!=0){
                 Message message = messages[messages.length-1];
                 try {
                     toEmail=message.getFrom()[0].toString().toLowerCase(Locale.ROOT);
                     subject=message.getSubject().toLowerCase(Locale.ROOT);
-                    System.out.println(subject);
+                    logger.info(subject);
                     if(toEmail.contains("prasanna.kmr11@gmail.com")){
                         if(!subject.contains("south")&&!subject.contains("re:")){
                             if(subject.contains("stockdale")||subject.contains("thomaston")){
@@ -146,7 +148,7 @@ public class ReplyToEmail {
             transport.sendMessage(mimeMessage, mimeMessage.getAllRecipients());
             transport.close();
             replyToEmail.sendEmailStatus=true;
-            System.out.println("Email sent time:- "+formatter.format(Calendar.getInstance().getTime()));
+            logger.info("Email sent time:- "+formatter.format(Calendar.getInstance().getTime()));
         }catch (MessagingException mex) {
             mex.printStackTrace();
         }
