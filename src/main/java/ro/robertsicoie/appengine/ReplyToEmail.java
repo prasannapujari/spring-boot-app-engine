@@ -18,7 +18,7 @@ public class ReplyToEmail {
     public SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss.SSS");
     private static final Logger logger = Logger.getLogger("ReplyToEmail");
     public static String from = "prasanna.pujari66@gmail.com";
-    public static String pass ="xyboiirowplwsbrn";
+    public static String pass ="XXXXXXXXx";
     // Recipient's email ID needs to be mentioned.
     public static String host = "smtp.gmail.com";
     public static ReplyToEmail replyToEmail=new ReplyToEmail();
