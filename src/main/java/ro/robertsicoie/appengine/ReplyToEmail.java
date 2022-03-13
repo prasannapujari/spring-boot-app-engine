@@ -35,7 +35,7 @@ public class ReplyToEmail {
         replyToEmail.callEmail();*//*
     }*/
 
-    public void callEmail(){
+    public boolean callEmail(){
         // Get system properties
         Properties properties = System.getProperties();
         // Setup mail server
@@ -62,6 +62,8 @@ public class ReplyToEmail {
         }catch (MessagingException mex) {
             mex.printStackTrace();
         }
+
+        return  replyToEmail.sendEmailStatus;
     }
     public  void   checkInbox(Store store ){
         // Sender's email ID needs to be mentioned

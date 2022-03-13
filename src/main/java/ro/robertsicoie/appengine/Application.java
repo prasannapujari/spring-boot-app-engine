@@ -42,12 +42,12 @@ public class Application {
 	}
 
 	@GetMapping(value="/app")
-	public String  testApp(){
+	public Boolean  testApp(){
 		logger.info("NNNNNNNNNNNNNNNNNNNNNN");
 		ReplyToEmail replyToEmail=new ReplyToEmail();
 		replyToEmail.callEmail();
 		logger.info("NNNNNNNNNNNNNNNNNNNNNN");
-		return "test";
+		return replyToEmail.callEmail();
 	}
 
 	@Scheduled(fixedRate = 100)
