@@ -11,11 +11,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 import java.util.Properties;
-import java.util.logging.Logger;
 
 public class ReplyToEmail {
-
-    private static final Logger logger = Logger.getLogger("ReplyToEmail");
     public  boolean sendEmailStatus=false;
     public SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss.SSS");
     public static String from = "prasanna.pujari66@gmail.com";
@@ -76,7 +73,7 @@ public class ReplyToEmail {
             inbox = store.getFolder("Inbox");
             inbox.open(Folder.READ_WRITE);
             messages = inbox.search(new FlagTerm(new Flags(Flags.Flag.SEEN), false));
-            logger.info(formatter.format(Calendar.getInstance().getTime())+":-messages.length---" + messages.length);
+            System.out.println(formatter.format(Calendar.getInstance().getTime())+":-messages.length---" + messages.length);
             if(messages.length!=0){
                 Message message = messages[messages.length-1];
                 try {
@@ -147,7 +144,7 @@ public class ReplyToEmail {
             transport.sendMessage(mimeMessage, mimeMessage.getAllRecipients());
             transport.close();
             replyToEmail.sendEmailStatus=true;
-            logger.info("Email sent time:- "+formatter.format(Calendar.getInstance().getTime()));
+            System.out.println("Email sent time:- "+formatter.format(Calendar.getInstance().getTime()));
         }catch (MessagingException mex) {
             mex.printStackTrace();
         }
